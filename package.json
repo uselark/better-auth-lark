@@ -2,6 +2,14 @@
   "name": "better-auth-lark",
   "version": "0.1.1",
   "description": "Create customers and subscribe them to free plan with lark billing on signup",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uselark/better-auth-lark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uselark/better-auth-lark/issues"
+  },
+  "homepage": "https://github.com/uselark/better-auth-lark",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
