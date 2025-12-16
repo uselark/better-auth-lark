@@ -1,6 +1,6 @@
 {
   "name": "@uselark/better-auth-lark",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Create customers and subscribe them to free plan with lark billing on signup",
   "repository": {
     "type": "git",
