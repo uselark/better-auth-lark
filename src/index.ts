@@ -51,6 +51,7 @@ export const lark = <O extends LarkOptions>(options: O) => {
                   }
                 },
               },
+              // Todo: support updating subject details on user update as well
             },
           },
         },

@@ -5,8 +5,8 @@ A [Lark billing](https://uselark.ai/) plugin for [Better Auth](https://www.bette
 ## Installation
 
 ```bash
-npm install lark-billing
-npm install better-auth-lark
+npm i lark-billing
+npm i @uselark/better-auth-lark
 ```
 
 ## Setup
