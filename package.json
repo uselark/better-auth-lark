@@ -1,0 +1,40 @@
+{
+  "name": "better-auth-lark",
+  "version": "0.1.1",
+  "description": "Create customers and subscribe them to free plan with lark billing on signup",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "better-auth",
+    "lark-billing",
+    "authentication",
+    "billing",
+    "plugin"
+  ],
+  "author": "Lark Team <team@uselark.io>",
+  "license": "MIT",
+  "peerDependencies": {
+    "better-auth": "^1.4.7",
+    "lark-billing": "^0.5.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
