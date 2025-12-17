@@ -51,7 +51,24 @@ export const lark = <O extends LarkOptions>(options: O) => {
                   }
                 },
               },
-              // Todo: support updating subject details on user update as well
+              update: {
+                async after(user, ctx) {
+                  if (!ctx || !options.createCustomerOnSignUp) return;
+
+                  try {
+                    await client.subjects.update(user.id, {
+                      email: user.email,
+                      name: user.name,
+                      metadata: {},
+                    });
+                  } catch (e: any) {
+                    ctx.context.logger.error(
+                      `Failed to update Lark customer: ${e.message}`,
+                      e
+                    );
+                  }
+                },
+              },
             },
           },
         },
