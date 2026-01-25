@@ -7,7 +7,7 @@ import { z } from "zod";
 const LARK_BILLING_PLUGIN_ID = "lark-billing-plugin";
 
 export interface LarkOptions {
-  larkClient: LarkClient;
+  larkSdkClient: LarkClient;
   createCustomerOnSignUp?: boolean | undefined;
   freePlanRateCardInfo?:
     | {
@@ -20,7 +20,7 @@ export interface LarkOptions {
 }
 
 export const lark = <O extends LarkOptions>(options: O) => {
-  const client = options.larkClient;
+  const client = options.larkSdkClient;
 
   return {
     id: LARK_BILLING_PLUGIN_ID,
