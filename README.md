@@ -24,9 +24,14 @@ const larkSdkClient = new LarkClient({
 });
 
 const larkPlugin = lark({
-    larkClient: larkSdkClient,
-    createCustomerOnSignUp: true,
-    freePlanRateCardId: "FREE_PLAN_RATE_CARD_ID",
+  larkSdkClient: larkSdkClient,
+  createCustomerOnSignUp: true,
+  freePlanRateCardInfo: {
+      freePlanRateCardId: "FREE_PLAN_RATE_CARD_ID",
+      fixedRateQuantities: {
+      "FREE_PLAN_RATE_QUANTITY_CODE": 1,
+      },
+  },
 });
 
 export const auth = betterAuth({
