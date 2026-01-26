@@ -91,6 +91,39 @@ export const lark = <O extends LarkOptions>(options: O) => {
       };
     },
     endpoints: {
+      createSubscription: createAuthEndpoint(
+        "/lark-billing-plugin/create-subscription",
+        {
+          method: "POST",
+          body: z.object({
+            rate_card_id: z.string(),
+            fixed_rate_quantities: z.record(z.string(), z.number()),
+            checkout_callback_urls: z
+              .object({
+                cancelled_url: z.string(),
+                success_url: z.string(),
+              })
+              .optional(),
+          }),
+          use: [sessionMiddleware],
+        },
+        async (ctx) => {
+          const {
+            rate_card_id,
+            fixed_rate_quantities,
+            checkout_callback_urls,
+          } = ctx.body;
+
+          const result = await client.subscriptions.create({
+            subject_id: ctx.context.session.user.id,
+            rate_card_id,
+            fixed_rate_quantities,
+            ...(checkout_callback_urls && { checkout_callback_urls }),
+          });
+
+          return ctx.json(result);
+        },
+      ),
       createCustomerPortalSession: createAuthEndpoint(
         "/lark-billing-plugin/create-customer-portal-session",
         {
